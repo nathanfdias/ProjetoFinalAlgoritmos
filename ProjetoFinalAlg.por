@@ -3,7 +3,6 @@ programa
 	
 	funcao inicio()
 	{
-		//Apenas chamar logo
 		logo()
 	}
 	
@@ -21,6 +20,7 @@ programa
 		lescreval("Deseja entrar na loja? ")
 		escreval("1 - Sim ")
 		escreval("2 - Não")
+		escreval("9 - Sair")
 		lescreva("Digite a opção desejada: ")
 		leia(opcao)	
 
@@ -30,11 +30,17 @@ programa
 				login()
 			pare
 			caso '2' : 
-				lescreval("Volte sempre!")
+				limpa() 
+				lescreval("Volte sempre que desejar!")
 			pare
-			caso contrario : 
-				lescreval("opção inválida, tente novamente!")
-				login()
+			caso '9' :
+				limpa() 
+				lescreval("Programa finalizado")
+			pare
+			caso contrario :
+				limpa()  
+				lescreval("Opção inválida, tente novamente!")
+				entrarNaLoja()
 		}		
 	}
 		
@@ -48,7 +54,7 @@ programa
 		cadeia usuario, senha
 		caracter opcao
 
-		escreval("****** Tela Login ******")
+		lescreval("****** Tela Login ******")
 		escreva("Login: ")
 		leia(usuario)
 		escreva("Senha: ")
@@ -66,8 +72,27 @@ programa
 			menuPrincipal()			
 		}
 		senao {
-			lescreval("Usuário ou senha inválidos tente novamente!")
-			login()
+			limpa()
+			lescreval("Usuário ou senha inválidos!")
+			escreval("1 - Sim")
+			escreval("2 - Não")
+			lescreva("Deseja tentar novamente? ")
+			leia(opcao)
+
+			escolha (opcao)
+			{
+				caso '1' :
+					limpa()
+					login()
+				pare
+				caso '2' :
+					limpa()
+					escreval("Programa finalizado")
+				pare
+				caso contrario :
+					limpa()
+					escreval("Opção inválida")
+			} 
 		}			
 	}
 	
@@ -105,7 +130,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 572; 
+ * @POSICAO-CURSOR = 1709; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
