@@ -3,38 +3,46 @@ programa
 	
 	funcao inicio()
 	{
-		//Apenas chamar logo
 		logo()
 	}
 	
 	funcao logo ()
 	{
 		//Apenas Logo da loja em FOR e chamar login
-		escreval("Logo em For")
+		barramenu("Logo")
 		entrarNaLoja()
 	}
 
 	funcao entrarNaLoja ()
 	{
 		caracter opcao
-		
+
+		barramenu("Bem vindo!")
 		lescreval("Deseja entrar na loja? ")
 		escreval("1 - Sim ")
 		escreval("2 - Não")
-		lescreva("Digite a opção desejada: ")
+		escreval("9 - Sair")
+		lescreva("=> ")
 		leia(opcao)	
 
 		escolha (opcao) 
 		{
 			caso '1' : 
+				limpa()
 				login()
 			pare
 			caso '2' : 
-				lescreval("Volte sempre!")
+				limpa() 
+				lescreval("Volte sempre que desejar!")
 			pare
-			caso contrario : 
-				lescreval("opção inválida, tente novamente!")
-				login()
+			caso '9' :
+				limpa() 
+				lescreval("Programa finalizado")
+			pare
+			caso contrario :
+				limpa()  
+				lescreval("Opção inválida, tente novamente!")
+				entrarNaLoja()
 		}		
 	}
 		
@@ -48,8 +56,8 @@ programa
 		cadeia usuario, senha
 		caracter opcao
 
-		escreval("****** Tela Login ******")
-		escreva("Login: ")
+		barramenu("Login")
+		escreva("Usuário: ")
 		leia(usuario)
 		escreva("Senha: ")
 		leia(senha)
@@ -66,22 +74,46 @@ programa
 			menuPrincipal()			
 		}
 		senao {
-			lescreval("Usuário ou senha inválidos tente novamente!")
-			login()
+			limpa()
+			barramenu("Login")
+			lescreval("Usuário ou senha inválidos, deseja tentar novamente?")
+			escreval("1 - Sim")
+			escreval("2 - Menu anterior")
+			escreval("9 - Sair")
+			lescreva("=> ")
+			leia(opcao)
+
+			escolha (opcao)
+			{
+				caso '1' :
+					limpa()
+					login()
+				pare
+				caso '2' :
+					limpa()
+					entrarNaLoja()
+				caso '9' :
+					limpa()
+					lescreval("Programa finalizado")
+				pare
+				caso contrario :
+					limpa()
+					escreval("Opção inválida")
+			} 
 		}			
 	}
 	
 	funcao menuPrincipal()
 	{
 		//opções de menu
-		escreval("Menu principal")
+		barramenu("Menu principal")
 		produtos()
 	}
 	
 	funcao produtos()
 	{
 		//Menu de produtos
-		escreval("Menu de produtos")
+		barramenu("Menu de produtos")
 	}
 
 	funcao escreval(cadeia texto)
@@ -98,6 +130,11 @@ programa
 	{
 		escreva("\n", texto, "\n")
 	}
+
+	funcao barramenu(cadeia texto)
+	{
+		lescreval("::::::::::: " + texto + " :::::::::::")
+	}
 }
 
 /* $$$ Portugol Studio $$$ 
@@ -105,7 +142,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 572; 
+ * @POSICAO-CURSOR = 2258; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
