@@ -30,6 +30,7 @@ programa
 	
 	funcao produtos()
 	{
+<<<<<<< HEAD
 		inteiro escolhaMenuProdutos
 		
 		escreva("Bem vindo ao Menu de Produtos!")
@@ -220,6 +221,9 @@ programa
 		inteiro monitor, mouse, teclado
 		inteiro hdExterno, caboUsb, caboHdmi
 		inteiro cadeira, mesa, caneca
+=======
+		//Menu de produtos
+>>>>>>> a2797fb9f67c7b32a0256c68c2fcbd2561add1d7
 	}
 	
 }
@@ -230,7 +234,11 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
+<<<<<<< HEAD
  * @POSICAO-CURSOR = 380; 
+=======
+ * @POSICAO-CURSOR = 336; 
+>>>>>>> a2797fb9f67c7b32a0256c68c2fcbd2561add1d7
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
