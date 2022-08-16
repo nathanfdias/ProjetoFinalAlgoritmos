@@ -112,6 +112,7 @@ programa
 	
 	funcao produtos()
 	{
+<<<<<<< HEAD
 		inteiro escolhaMenuProdutos
 		
 		escreva("Bem vindo ao Menu de Produtos!")
@@ -289,6 +290,11 @@ programa
 			escreva("Algo está errado. Tente Novamente!\n")
 			listaConforto()
 		}
+=======
+		//Menu de produtos
+		//poema
+		escreva("oi")
+>>>>>>> 7abc351b4341d853e7390314cf6c996b64882eb3
 	}
 	
 	funcao vitrineProdutos()
@@ -371,7 +377,11 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
+<<<<<<< HEAD
  * @POSICAO-CURSOR = 758; 
+=======
+ * @POSICAO-CURSOR = 362; 
+>>>>>>> 7abc351b4341d853e7390314cf6c996b64882eb3
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
