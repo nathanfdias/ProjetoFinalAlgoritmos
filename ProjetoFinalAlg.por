@@ -3,34 +3,86 @@ programa
 	inclua biblioteca Util --> u
 	inclua biblioteca Matematica --> mat
 	
+	caracter opcao = '0'
+	
 	funcao inicio()
 	{
-		//Apenas chamar logo e login
 		logo()
-		login()
 	}
 	
 	funcao logo ()
 	{
-		//Apenas Logo da loja em FOR
-		escreva("Logo em For")
+		//Apenas Logo da loja em FOR e chamar login
+		barraMenu("Logo")
+		entrarNaLoja()
+	}
+
+	funcao entrarNaLoja ()
+	{
+		barraMenu("Bem vindo!")
+		lescreval("Deseja entrar na loja? ")
+		escreval("1 - Sim ")
+		escreval("2 - Não")
+		escreval("9 - Sair")
+		lescreva("=> ")
+		leia(opcao)	
+
+		escolha (opcao) 
+		{
+			caso '1' : 
+				limpa()
+				login()
+			pare
+			caso '2' : 
+				limpa() 
+				lescreval("Volte sempre que desejar!")
+			pare
+			caso '9' :
+				finalizar()
+			pare
+			caso contrario :
+				opcaoInvalida()
+				entrarNaLoja()
+		}		
 	}
 		
 	funcao login()
-	{
-		//Validar acesso
-		menuPrincipal()
+	{	
+		cadeia vetorUsuarios[6] = {"1", "2", "3", "4", "5", "6"}
+		cadeia vetorSenhas[6] = {"1", "2", "3", "4", "5", "6"}
+		cadeia usuario, senha
+		inteiro i
+		logico acessoPermitido = falso
+
+		barraMenu("Login")
+		escreva("Usuário: ")
+		leia(usuario)
+		escreva("Senha: ")
+		leia(senha)
+		escreval("")
+	
+		para(i=0; i < 6; i++) {
+			se (acessoPermitido == falso) {
+				se (usuario == vetorUsuarios[i] e senha == vetorSenhas[i]) { 
+					acessoPermitido = verdadeiro
+					limpa()
+					menuPrincipal()
+				} senao {
+					acessoInvalido()
+				}
+			}
+		}			
 	}
 	
 	funcao menuPrincipal()
 	{
 		//opções de menu
+		barraMenu("Menu principal")
 		produtos()
 	}
 	
 	funcao produtos()
 	{
-<<<<<<< HEAD
 		inteiro escolhaMenuProdutos
 		
 		escreva("Bem vindo ao Menu de Produtos!")
@@ -221,24 +273,76 @@ programa
 		inteiro monitor, mouse, teclado
 		inteiro hdExterno, caboUsb, caboHdmi
 		inteiro cadeira, mesa, caneca
-=======
-		//Menu de produtos
->>>>>>> a2797fb9f67c7b32a0256c68c2fcbd2561add1d7
 	}
-	
-}
 
+	funcao escreval(cadeia texto)
+	{
+		escreva(texto, "\n")
+	}
+
+	funcao lescreva(cadeia texto)
+	{
+		escreva("\n", texto)
+	}
+
+	funcao lescreval(cadeia texto)
+	{
+		escreva("\n", texto, "\n")
+	}
+
+	funcao barraMenu(cadeia texto)
+	{
+		lescreval("::::::::::: " + texto + " :::::::::::")
+	}
+
+	funcao finalizar()
+	{
+		limpa()
+		lescreval("Programa finalizado!")	
+     }
+
+     funcao opcaoInvalida()
+     {
+     	limpa()
+		escreval("Opção inválida, tente novamente!")	
+     }
+
+     funcao acessoInvalido()
+     {
+		limpa()
+		barraMenu("Login")
+		lescreval("Usuário e/ou senha inválidos, deseja tentar novamente?")
+		escreval("1 - Sim")
+		escreval("2 - Menu anterior")
+		escreval("9 - Sair")
+		lescreva("=> ")
+		leia(opcao)
+	
+		escolha (opcao)
+		{
+			caso '1' :
+				limpa()
+				login()
+			pare
+			caso '2' :
+				limpa()
+				entrarNaLoja()
+			caso '9' :
+				finalizar()
+			pare
+			caso contrario :
+				opcaoInvalida()
+				login()
+		}      		
+     }
+}
 
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
-<<<<<<< HEAD
- * @POSICAO-CURSOR = 380; 
-=======
- * @POSICAO-CURSOR = 336; 
->>>>>>> a2797fb9f67c7b32a0256c68c2fcbd2561add1d7
+ * @POSICAO-CURSOR = 2674; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
