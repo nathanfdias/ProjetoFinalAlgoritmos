@@ -112,7 +112,6 @@ programa
 	
 	funcao produtos()
 	{
-<<<<<<< HEAD
 		inteiro escolhaMenuProdutos
 		
 		escreva("Bem vindo ao Menu de Produtos!")
@@ -290,11 +289,9 @@ programa
 			escreva("Algo está errado. Tente Novamente!\n")
 			listaConforto()
 		}
-=======
 		//Menu de produtos
 		//poema
 		escreva("oi")
->>>>>>> 7abc351b4341d853e7390314cf6c996b64882eb3
 	}
 	
 	funcao vitrineProdutos()
