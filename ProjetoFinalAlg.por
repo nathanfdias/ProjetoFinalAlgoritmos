@@ -8,8 +8,8 @@ programa
 	inclua biblioteca Sons --> msc
 
 	const inteiro tamanho = 9
-	cadeia vetorUsuarios[tamanho] = {"Administrador", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
-	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "M123", "B123", "", "", ""}
+	cadeia vetorUsuarios[tamanho] = {"admin", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
+	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "B123", "A123", "", "", ""}
 	cadeia usuario, senha
 	caracter opcao = '0'
 	
@@ -51,17 +51,17 @@ programa
 			escreva(linha)
 			
 		}
-		barraMenu("INFOLUX COMPUTADORES")
-		barraMenu("  SEMPRE CONECTADO  ")
 		entrarNaLoja()
 	}
 
 	funcao entrarNaLoja ()
 	{
+		barraMenu("INFOLUX COMPUTADORES")
+		barraMenu("  SEMPRE CONECTADO  ")
 		lescreval("Deseja entrar na loja? ")
 		escreval("1 - Sim ")
-		escreval("2 - Não")
-		escreval("3 - Sair")
+		escreval("2 - Sair")
+		escreval("3 - Sobre")
 		lescreva("=> ")
 		leias(opcao)	
 
@@ -76,7 +76,7 @@ programa
 				lescreval("Volte sempre que desejar!")
 			pare
 			caso '3' :
-				finalizar()
+				desenvolvedores()
 			pare
 			caso contrario :
 				limpa()
@@ -111,6 +111,41 @@ programa
 		}		
 	}
 
+	funcao desenvolvedores()
+	{
+		limpa()
+		barraMenu("Desenvolvedores")
+		escreval("Anthony Barbosa - https://github.com/AnthonyBarbosa15")
+		escreval("Barbara Souza - https://github.com/barbarasouzza")
+		escreval("Leandro Ferraz - https://github.com/FerrazLeandro")
+		escreval("Mari Barbosa - ")
+		escreval("Nathan Dias - https://github.com/nathanfdias")
+		escreval("Poema Bochner - https://github.com/poemabochner")
+
+		lescreval("Deseja voltar a tela inicial? ")
+		escreval("1 - Sim ")
+		escreval("2 - Não")
+		lescreva("=> ")
+		leias(opcao)	
+
+		escolha (opcao) 
+		{
+			caso '1' : 
+				limpa()
+				entrarNaLoja()
+			pare
+			caso '2' : 
+				limpa() 
+				lescreval("Volte sempre que desejar!")
+			pare
+			caso contrario :
+				limpa()
+				opcaoInvalida()
+				u.aguarde(1000)
+				entrarNaLoja()
+		}		
+	}
+	
 	funcao acessoInvalido()
      {
 		limpa()
@@ -497,8 +532,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2605; 
- * @DOBRAMENTO-CODIGO = [15, 20, 58, 88, 113, 144, 186, 262, 378, 339, 417, 434, 444, 452, 462, 467, 472, 477, 482, 488];
+ * @POSICAO-CURSOR = 378; 
+ * @DOBRAMENTO-CODIGO = [15, 88, 148, 179, 221, 297, 413, 374, 452, 469, 479, 487, 497, 502, 507, 512, 517, 523];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
