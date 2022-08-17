@@ -8,8 +8,8 @@ programa
 	inclua biblioteca Sons --> msc
 
 	const inteiro tamanho = 9
-	cadeia vetorUsuarios[tamanho] = {"1", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
-	cadeia vetorSenhas[tamanho] = {"1", "L123", "P123", "N123", "B123", "A123", "", "", ""}
+	cadeia vetorUsuarios[tamanho] = {"admin", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
+	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "B123", "A123", "", "", ""}
 	cadeia usuario, senha
 	caracter opcao = '0'
 	
@@ -532,7 +532,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1331; 
+ * @POSICAO-CURSOR = 378; 
  * @DOBRAMENTO-CODIGO = [15, 88, 148, 179, 221, 297, 413, 374, 452, 469, 479, 487, 497, 502, 507, 512, 517, 523];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
