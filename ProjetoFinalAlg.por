@@ -2,7 +2,11 @@ programa
 {
 	inclua biblioteca Util --> u
 	inclua biblioteca Matematica --> mat
-	
+	inclua biblioteca Texto --> tx
+
+	cadeia vetorUsuarios[] = {"ADMINISTRADOR", "LEANDRO", "POEMA", "NATHAN", "MARI", "ANTHONY"}
+	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "M123", "A123"}
+	cadeia usuario, senha
 	caracter opcao = '0'
 	
 	funcao inicio()
@@ -48,7 +52,7 @@ programa
 
 	funcao entrarNaLoja ()
 	{
-		barraMenu("Bem vindo!")
+		barraMenu("Bem vindo(a)!")
 		lescreval("Deseja entrar na loja? ")
 		escreval("1 - Sim ")
 		escreval("2 - Não")
@@ -79,36 +83,65 @@ programa
 		
 	funcao login()
 	{	
-		cadeia vetorUsuarios[6] = {"1", "2", "3", "4", "5", "6"}
-		cadeia vetorSenhas[6] = {"1", "2", "3", "4", "5", "6"}
-		cadeia usuario, senha
-		inteiro i
+		const inteiro tamanho = 6
 		logico acessoPermitido = falso
 
 		barraMenu("Login")
 		escreva("Usuário: ")
 		leia(usuario)
+		usuario = tx.caixa_alta(usuario)
 		escreva("Senha: ")
 		leia(senha)
 		escreval("")
 	
-		para(i=0; i < 6; i++) {
-			se (acessoPermitido == falso) {
-				se (usuario == vetorUsuarios[i] e senha == vetorSenhas[i]) { 
-					acessoPermitido = verdadeiro
-					limpa()
-					menuPrincipal()
-				} senao {
-					acessoInvalido()
-				}
-			}
-		}			
+		para(inteiro i=0; i < tamanho; i++) {
+			acessoPermitido = (usuario == vetorUsuarios[i] e senha == vetorSenhas[i])
+			se (acessoPermitido) pare
+		} 
+
+		se (acessoPermitido){
+			limpa()
+			menuPrincipal()
+		} senao {
+			acessoInvalido()
+		}		
 	}
+
+	funcao acessoInvalido()
+     {
+		limpa()
+		barraMenu("Login")
+		lescreval("Usuário e/ou senha inválidos, deseja tentar novamente?")
+		escreval("1 - Sim")
+		escreval("2 - Menu anterior")
+		escreval("3 - Sair")
+		lescreva("=> ")
+		leia(opcao)
+	
+		escolha (opcao)
+		{
+			caso '1' :
+				limpa()
+				login()
+			pare
+			caso '2' :
+				limpa()
+				entrarNaLoja()
+			caso '3' :
+				finalizar()
+			pare
+			caso contrario :
+			{	
+				opcaoInvalida()
+				login()
+			}
+		}
+     }      		
 
 	funcao menuPrincipal() 
 	{	
 		barraMenu("Menu principal")
-		escreval("Bem vindo USER !")
+		escreval("Bem vindo " + usuario + "!")
 		escreval("Qual categoria deseja acessar? ")
 		escreval("1 - Computadores") 
 		escreval("2 - Hardware") 
@@ -324,44 +357,13 @@ programa
      	limpa()
 		escreval("Opção inválida, tente novamente!")	
      }
-
-     funcao acessoInvalido()
-     {
-		limpa()
-		barraMenu("Login")
-		lescreval("Usuário e/ou senha inválidos, deseja tentar novamente?")
-		escreval("1 - Sim")
-		escreval("2 - Menu anterior")
-		escreval("3 - Sair")
-		lescreva("=> ")
-		leia(opcao)
-	
-		escolha (opcao)
-		{
-			caso '1' :
-				limpa()
-				login()
-			pare
-			caso '2' :
-				limpa()
-				entrarNaLoja()
-			caso '3' :
-				finalizar()
-			pare
-			caso contrario :
-			{	
-				opcaoInvalida()
-				login()
-			}
-		}      		
-     }
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7078; 
+ * @POSICAO-CURSOR = 1049; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
