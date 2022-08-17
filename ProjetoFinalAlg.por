@@ -3,9 +3,12 @@ programa
 	inclua biblioteca Util --> u
 	inclua biblioteca Matematica --> mat
 	inclua biblioteca Texto --> tx
+	inclua biblioteca Graficos --> g
+	inclua biblioteca Mouse --> mo
+	inclua biblioteca Teclado --> tl
 
-	cadeia vetorUsuarios[] = {"ADMINISTRADOR", "LEANDRO", "POEMA", "NATHAN", "MARI", "ANTHONY"}
-	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "M123", "A123"}
+	cadeia vetorUsuarios[] = {"1", "LEANDRO", "POEMA", "NATHAN", "MARI", "ANTHONY"}
+	cadeia vetorSenhas[] = {"1", "L123", "P123", "N123", "M123", "A123"}
 	cadeia usuario, senha
 	caracter opcao = '0'
 	
@@ -183,13 +186,15 @@ programa
 
 	funcao listaComputadores() 
 	{
-		lescreval("Nome: Mouse Ml-GMH64")
+		lescreval("Código: 1")
+		escreval("Nome: Mouse Ml-GMH64")
 		escreval("Descrição: Com o seu Tedge ML-GMH64 encontre o que você está"+
 		" procurando em um único dispositivo com a melhor tecnologia.")
 		escreval("Quantidade: 30 ")
 		escreval("Valor: R$ 40,00 ")
 		escreval("")
-		
+
+		escreval("Código: 2")
 		escreval("Nome: Monitor Ultrawide 29") 
 		escreval("Descrição: Trabalhe em mais de um relatório de uma vez só,"+
 		" sem precisar alternar de janelas toda vez.")
@@ -197,7 +202,7 @@ programa
 		escreval("Valor: R$ 1200,00 ")
 		escreval("")
 
-		
+		escreval("Código: 3")
 		escreval("Nome: Teclado Mecânico Knup")
 		escreval("Descrição: Este teclado Knup de alto desempenho permite que"+
 		" você desfrute de horas ilimitadas de jogos.")
@@ -205,41 +210,67 @@ programa
 		escreval("Valor: R$ 150,00 ")	
 		escreval("")
 
-		lescreval("Deseja voltar ao menu?")
-		escreval("1 - Sim")
-		escreval("2 - Sair")
+		escreva("Deseja exibir a imagem do produto? ")
+		lescreval("1 - Sim")
+		escreval("2 - Não")
 		escreva("=> ")
 		leia(opcao)
 
-		escolha(opcao){
-			caso '1' :
-				limpa()
-				u.aguarde(1000)
-				menuPrincipal()
-			pare
-			caso '2' :
-				limpa()
-				finalizar()
-			pare
-			caso contrario :
-				limpa()
-				opcaoInvalida()
-				listaComputadores()			
+		se (opcao == '1'){
+			lescreval("Informe o código do item: ")
+			escreva("=> ")
+			leia(opcao)
+			lescreval("Pressione qualquer tecla para fechar a imagem!")
+			
+			escolha (opcao){ 
+				caso '1' : 
+					imagem("img/mouseProjeto.png")
+				pare
+				caso '2' : 
+					imagem("img/MonitorProjeto.png")
+				pare
+				caso '3' : 
+					imagem("img/tecladoProjeto.png")
+				pare
+				caso contrario : 
+					opcaoInvalida()
+					listaComputadores()		
+			}
 		}
-
-		
+			lescreval("Deseja voltar ao menu?")
+			escreval("1 - Sim")
+			escreval("2 - Sair")
+			escreva("=> ")
+			leia(opcao)
+	
+			escolha(opcao){
+				caso '1' :
+					limpa()
+					u.aguarde(1000)
+					menuPrincipal()
+				pare
+				caso '2' :
+					limpa()
+					finalizar()
+				pare
+				caso contrario :
+					limpa()
+					opcaoInvalida()
+					listaComputadores()			
+			}
 	}
 
 	funcao listaHardware() 
-	{		
-		lescreval("Nome: Hd Externo 4TB")
+	{	
+		lescreval("Código: 1")	
+		escreval("Nome: Hd Externo 4TB")
 		escreval("Descrição: Um HD externo oferece mais espaço de armazenamento para"+
 		" guardar os seus dados.")
 		escreval("Quantidade: 5 ")
 		escreval("Valor: R$ 200,00 ")
 		escreval("")
 
-		
+		escreval("Código: 2")
 		escreval("Nome: Cabo Usb 2 Metros")
 		escreval("Descrição: Conector que permite conectar diferentes elementos através do"+
 		" Universal Serial Bus.")
@@ -247,46 +278,76 @@ programa
 		escreval("Valor: R$ 10,00 ")
 		escreval("")
 
-		
+		escreval("Código: 3")
 		escreval("Nome: Cabo Hdmi 1 Metro ")
 		escreval("Descrição: Cabo HDMI Premium com conectores banhados à ouro 24k, protegido"+ 
 		" com blindagem , garantindo maior durabilidade, evitando interferências e perda de qualidade.")
 		escreval("Quantidade: 15 ")
 		escreval("Valor: R$ 25,00 ")
 		escreval("")
-		
-		lescreval("Deseja voltar ao menu?")
-		escreval("1 - Sim")
-		escreval("2 - Sair")
+
+		escreva("Deseja exibir a imagem do produto? ")
+		lescreval("1 - Sim")
+		escreval("2 - Não")
 		escreva("=> ")
 		leia(opcao)
 
-		escolha(opcao){
-			caso '1' :
-				limpa()
-				u.aguarde(1000)
-				menuPrincipal()
-			pare
-			caso '2' :
-				limpa()
-				finalizar()
-			pare
-			caso contrario :
-				limpa()
-				opcaoInvalida()
-				listaHardware()
-		}
+		se (opcao == '1'){
+			lescreval("Informe o código do item: ")
+			escreva("=> ")
+			leia(opcao)
+			lescreval("Pressione qualquer tecla para fechar a imagem!")
+			
+			escolha (opcao){ 
+				caso '1' : 
+					imagem("img/hdExternoProjeto.png")
+					escreval("")
+				pare
+				caso '2' : 
+					imagem("img/Usbprojeto.png")
+				pare
+				caso '3' : 
+					imagem("img/HDMIprojeto.png")
+				pare
+				caso contrario : 
+					opcaoInvalida()
+					listaHardware()		
+			}
+		}	
+			lescreval("Deseja voltar ao menu?")
+			escreval("1 - Sim")
+			escreval("2 - Sair")
+			escreva("=> ")
+			leia(opcao)
+	
+			escolha(opcao){
+				caso '1' :
+					limpa()
+					u.aguarde(1000)
+					menuPrincipal()
+				pare
+				caso '2' :
+					limpa()
+					finalizar()
+				pare
+				caso contrario :
+					limpa()
+					opcaoInvalida()
+					listaHardware()			
+			}
 	}
 
 	funcao listaAcessorios()
 	{
-		lescreval("Nome: Cadeira Gamer Moobx Gt")
+		lescreval("Código: 1")
+		escreval("Nome: Cadeira Gamer Moobx Gt")
 		escreval("Descrição: As cadeiras GT RACER da MoobX são a opção ideal"+
 		"para os games mais desafiadores e irados. Sinta a adrenalina a cada jogo!")
 		escreval("Quantidade: 10 ")
 		escreval("Valor: R$ 450,00 ")
 		escreval("")
-		
+
+		escreval("Código: 2")
 		escreval("Nome: Mesa Escritório ")
 		escreval("Descrição: A nova linha de mesas para escritórios da "+
 		"Kappesberg trouxe muitas novidades para o seu espaço de trabalho."+ 
@@ -295,7 +356,7 @@ programa
 		escreval("Valor: R$ 500,00 ")
 		escreval("")
 
-		
+		escreval("Código: 3")
 		escreval("Nome: Caneca Stanley")
 		escreval("Descrição: O modelo, que está disponível na cor preto fosco e oferece capacidade para 709ml,"+
 		" faz parte da linha Classic e apresenta uma qualidade surpreendente.")
@@ -303,27 +364,72 @@ programa
 		escreval("Valor: R$ 100,00 ")
 		escreval("")
 
-		lescreval("Deseja voltar ao menu?")
-		escreval("1 - Sim")
-		escreval("2 - Sair")
+		escreva("Deseja exibir a imagem do produto? ")
+		lescreval("1 - Sim")
+		escreval("2 - Não")
 		escreva("=> ")
 		leia(opcao)
 
-		escolha(opcao){
-			caso '1' :
-				limpa()
-				u.aguarde(1000)
-				menuPrincipal()
-			pare
-			caso '2' :
-				limpa()
-				finalizar()
-			pare
-			caso contrario :
-				limpa()
-				opcaoInvalida()
-				listaAcessorios()
-		}
+		se (opcao == '1'){
+			lescreval("Informe o código do item: ")
+			escreva("=> ")
+			leia(opcao)
+			lescreval("Pressione qualquer tecla para fechar a imagem!")
+			
+			escolha (opcao){ 
+				caso '1' : 
+					imagem("img/cadeiraProjeto.png")
+					escreval("")
+				pare
+				caso '2' : 
+					imagem("img/mesaProjeto.png")
+				pare
+				caso '3' : 
+					imagem("img/canecoProjeto.png")
+				pare
+				caso contrario : 
+					opcaoInvalida()
+					listaHardware()		
+			}
+		}	
+			lescreval("Deseja voltar ao menu?")
+			escreval("1 - Sim")
+			escreval("2 - Sair")
+			escreva("=> ")
+			leia(opcao)
+	
+			escolha(opcao){
+				caso '1' :
+					limpa()
+					u.aguarde(1000)
+					menuPrincipal()
+				pare
+				caso '2' :
+					limpa()
+					finalizar()
+				pare
+				caso contrario :
+					limpa()
+					opcaoInvalida()
+					listaHardware()			
+			}
+	}
+
+	funcao imagem(cadeia arquivo)
+	{		
+		inteiro img = g.carregar_imagem(arquivo)
+
+		
+		g.iniciar_modo_grafico(verdadeiro)	
+		g.ocultar_borda_janela()
+		g.definir_dimensoes_janela(800, 600)
+		g.desenhar_imagem(0, 0, img)
+	     g.renderizar()
+	     
+	     enquanto (nao tl.alguma_tecla_pressionada()){ 
+	    		u.aguarde(10)
+	     }
+	     g.encerrar_modo_grafico()
 	}
 
 	funcao escreval(cadeia texto)
@@ -363,7 +469,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1412; 
+ * @POSICAO-CURSOR = 7602; 
+ * @DOBRAMENTO-CODIGO = [14, 19, 55, 86, 112, 143, 186, 262, 434, 439, 444, 449, 454, 460];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
