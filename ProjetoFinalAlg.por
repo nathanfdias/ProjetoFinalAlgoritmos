@@ -1,46 +1,48 @@
 programa
 {
 	inclua biblioteca Util --> u
-	inclua biblioteca Matematica --> mat
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Mouse --> mo
 	inclua biblioteca Teclado --> tl
+	inclua biblioteca Sons --> msc
 
-	cadeia vetorUsuarios[] = {"1", "LEANDRO", "POEMA", "NATHAN", "MARI", "ANTHONY"}
-	cadeia vetorSenhas[] = {"1", "L123", "P123", "N123", "M123", "A123"}
+	const inteiro tamanho = 9
+	cadeia vetorUsuarios[tamanho] = {"Administrador", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
+	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "M123", "B123", "", "", ""}
 	cadeia usuario, senha
 	caracter opcao = '0'
 	
 	funcao inicio()
-	{
-		logo()
+	{	
+		somLogin()
 	}
 	
 	funcao logo ()
 	{
 		const cadeia linha ="*"//para caso de alteração no símbolo impresso, muda apenas 1x
 		inteiro i, j, k
+		
 		para(i = 0; i<8; i++){
 			escreva(linha, " ")
 		}
 		para(j=0; j<3; j++){
-			escreva("\n", linha)
+			lescreva( linha)
 			para(k=0; k<13; k++){
 				escreva(" ")
 				}
 			escreva(linha)
 		}
-		escreva("\n")
+		escreval("")
 		para(i=0; i<8; i++){
 			escreva(linha, " ")
 			}
-		escreva("\n")
+		escreval("")
 		para(i=0; i<1; i++){
 			para(k=0; k<6; k++){
 				escreva(" ")
 			}
-			escreva(linha, " ", linha, "\n")
+			escreval(linha + " " + linha)
 		}
 		para (i=0; i<=6;i++){
 			para (k=0; k<1;k++){
@@ -49,19 +51,19 @@ programa
 			escreva(linha)
 			
 		}
-		lescreval("InfoLux Computadores")
+		barraMenu("INFOLUX COMPUTADORES")
+		barraMenu("  SEMPRE CONECTADO  ")
 		entrarNaLoja()
 	}
 
 	funcao entrarNaLoja ()
 	{
-		barraMenu("Bem vindo(a)!")
 		lescreval("Deseja entrar na loja? ")
 		escreval("1 - Sim ")
 		escreval("2 - Não")
 		escreval("3 - Sair")
 		lescreva("=> ")
-		leia(opcao)	
+		leias(opcao)	
 
 		escolha (opcao) 
 		{
@@ -86,7 +88,6 @@ programa
 		
 	funcao login()
 	{	
-		const inteiro tamanho = 6
 		logico acessoPermitido = falso
 
 		barraMenu("Login")
@@ -119,7 +120,7 @@ programa
 		escreval("2 - Menu anterior")
 		escreval("3 - Sair")
 		lescreva("=> ")
-		leia(opcao)
+		leias(opcao)
 	
 		escolha (opcao)
 		{
@@ -151,7 +152,7 @@ programa
 		escreval("3 - Acessórios")
 		escreval("4 - Sair ")
 		escreva("=> ")
-		leia(opcao)
+		leias(opcao)
 
 		escolha(opcao) {
 			caso '1' :
@@ -175,8 +176,7 @@ programa
 				login()
 			pare
 			caso contrario:
-				limpa()
-				escreva("Opção inválida. Retornando ao Menu Principal.")	
+				opcaoInvalida()	
 				u.aguarde(1000)
 				limpa()
 				menuPrincipal()
@@ -214,12 +214,12 @@ programa
 		lescreval("1 - Sim")
 		escreval("2 - Não")
 		escreva("=> ")
-		leia(opcao)
+		leias(opcao)
 
 		se (opcao == '1'){
 			lescreval("Informe o código do item: ")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 			lescreval("Pressione qualquer tecla para fechar a imagem!")
 			
 			escolha (opcao){ 
@@ -241,7 +241,7 @@ programa
 			escreval("1 - Sim")
 			escreval("2 - Sair")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 	
 			escolha(opcao){
 				caso '1' :
@@ -290,12 +290,12 @@ programa
 		lescreval("1 - Sim")
 		escreval("2 - Não")
 		escreva("=> ")
-		leia(opcao)
+		leias(opcao)
 
 		se (opcao == '1'){
 			lescreval("Informe o código do item: ")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 			lescreval("Pressione qualquer tecla para fechar a imagem!")
 			
 			escolha (opcao){ 
@@ -318,7 +318,7 @@ programa
 			escreval("1 - Sim")
 			escreval("2 - Sair")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 	
 			escolha(opcao){
 				caso '1' :
@@ -368,12 +368,12 @@ programa
 		lescreval("1 - Sim")
 		escreval("2 - Não")
 		escreva("=> ")
-		leia(opcao)
+		leias(opcao)
 
 		se (opcao == '1'){
 			lescreval("Informe o código do item: ")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 			lescreval("Pressione qualquer tecla para fechar a imagem!")
 			
 			escolha (opcao){ 
@@ -396,7 +396,7 @@ programa
 			escreval("1 - Sim")
 			escreval("2 - Sair")
 			escreva("=> ")
-			leia(opcao)
+			leias(opcao)
 	
 			escolha(opcao){
 				caso '1' :
@@ -430,6 +430,34 @@ programa
 	    		u.aguarde(10)
 	     }
 	     g.encerrar_modo_grafico()
+	}
+
+	funcao som(cadeia arquivo)
+	{
+		inteiro musica = msc.carregar_som(arquivo)
+		msc.reproduzir_som(musica, falso)
+		msc.definir_volume(50)
+		u.aguarde(100)
+		msc.interromper_som(musica)
+		msc.liberar_som(musica)
+	}
+
+	funcao caracter leias(caracter opcaoMenu)
+	{
+		leia(opcao)
+		som("som/chimbal.mp3")
+
+		retorne opcaoMenu	
+	}
+
+	funcao somLogin()
+	{
+		inteiro musica = msc.carregar_som("som/login.mp3")
+		msc.reproduzir_som(musica, verdadeiro)
+		msc.definir_volume(40)
+		logo()
+		msc.interromper_som(musica)
+		msc.liberar_som(musica)
 	}
 
 	funcao escreval(cadeia texto)
@@ -469,8 +497,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7602; 
- * @DOBRAMENTO-CODIGO = [14, 19, 55, 86, 112, 143, 186, 262, 434, 439, 444, 449, 454, 460];
+ * @POSICAO-CURSOR = 2605; 
+ * @DOBRAMENTO-CODIGO = [15, 20, 58, 88, 113, 144, 186, 262, 378, 339, 417, 434, 444, 452, 462, 467, 472, 477, 482, 488];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
