@@ -8,6 +8,9 @@ programa
 	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "M123", "A123"}
 	cadeia usuario, senha
 	caracter opcao = '0'
+	inteiro estMonitor = 10, valorMonitor = 1200
+	inteiro estMouse = 30, valorMouse = 40
+	inteiro estTeclado = 25, valorTeclado = 150
 	
 	funcao inicio()
 	{
@@ -357,13 +360,219 @@ programa
      	limpa()
 		escreval("Opção inválida, tente novamente!")	
      }
+     	
+     funcao centralCompras()
+	{
+		inteiro decisao, quant, valorCompra = 0
+		
+		escreva("Bem vindo a central de Compras !")
+		u.aguarde(1000)
+		limpa()
+
+		escreva("Qual Item deseja Comprar:\n")
+		escreva("1 - Monitor\n")
+		escreva("2 - Mouse\n")
+		escreva("3 - Teclado\n")
+		escreva("4 - Cabo USB\n")
+		escreva("5 - Cabo HDMI\n")
+		escreva("6 - Hd Externo\n")
+		escreva("7 - Cadeira\n")
+		escreva("8 - Mesa\n")
+		escreva("9 - Caneca\n")
+		escreva("=> ")
+		leia(decisao)
+
+		escolha(decisao) 
+		{
+			caso 1:
+				limpa()
+				u.aguarde(1000)
+				escreva("Qual quantidade deseja Comprar? \n")
+				escreva("=> ")
+				leia(quant)
+
+				se(quant > estMonitor)
+				{
+					limpa()
+					escreva("Quantidade acima do estoque.\n")
+					escreva("Estoque Disponível: ", estMonitor)
+					u.aguarde(3000)
+					limpa()
+					centralCompras()
+				} senao se (quant < 1) 
+				{
+					limpa()
+					escreva("Impossível Comprar valores nulos e negativos!")
+					u.aguarde(2000)
+					limpa()
+					centralCompras()		
+				} senao 
+				{
+					inteiro x
+					
+					limpa()
+					valorCompra = quant*valorMonitor
+					escreva("Parabéns você comprou ", quant, " de Monitor. Valor: ", valorCompra, " reais\n")
+					estMonitor = estMonitor - quant
+					u.aguarde(1000)
+					escreva("Deseja Continuar comprando?\n")
+					escreva("1 - Comprar outros itens\n")
+					escreva("2 - Sair da Loja\n")
+					escreva("=> ")
+					leia(x)
+
+					escolha(x) {
+						caso 1:
+							limpa()
+							escreva("Retornando a Central Compras.")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()
+						pare
+						caso 2:
+							limpa()
+							escreva("Obrigado e volte sempre.")
+							u.aguarde(1000)
+						caso contrario:
+							limpa()
+							escreva("Opção Inválida\n")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()	
+					}
+						
+				}
+			pare
+			caso 2:
+				limpa()
+				u.aguarde(1000)
+				escreva("Qual quantidade deseja Comprar? \n")
+				escreva("=> ")
+				leia(quant)
+
+				se(quant > estMouse)
+				{
+					limpa()
+					escreva("Quantidade acima do estoque.\n")
+					escreva("Estoque Disponível: ", estMouse)
+					u.aguarde(3000)
+					limpa()
+					centralCompras()
+				} senao se (quant < 1) 
+				{
+					limpa()
+					escreva("Impossível Comprar valores nulos e negativos!")
+					u.aguarde(2000)
+					limpa()
+					centralCompras()		
+				} senao 
+				{
+					inteiro x
+					
+					limpa()
+					valorMouse = quant*valorMouse
+					escreva("Parabéns você comprou ", quant, " de Mouse. Valor: ", valorCompra, " reais\n")
+					estMouse = estMouse - quant
+					u.aguarde(1000)
+					escreva("Deseja Continuar comprando?\n")
+					escreva("1 - Comprar outros itens\n")
+					escreva("2 - Sair da Loja\n")
+					escreva("=> ")
+					leia(x)
+
+					escolha(x) {
+						caso 1:
+							limpa()
+							escreva("Retornando a Central Compras.")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()
+						pare
+						caso 2:
+							limpa()
+							escreva("Obrigado e volte sempre.")
+							u.aguarde(1000)
+						caso contrario:
+							limpa()
+							escreva("Opção Inválida\n")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()	
+					}
+						
+				}
+			pare
+			caso 3:
+				limpa()
+				u.aguarde(1000)
+				escreva("Qual quantidade deseja Comprar? \n")
+				escreva("=> ")
+				leia(quant)
+
+				se(quant > estTeclado)
+				{
+					limpa()
+					escreva("Quantidade acima do estoque.\n")
+					escreva("Estoque Disponível: ", estTeclado)
+					u.aguarde(3000)
+					limpa()
+					centralCompras()
+				} senao se (quant < 1) 
+				{
+					limpa()
+					escreva("Impossível Comprar valores nulos e negativos!")
+					u.aguarde(2000)
+					limpa()
+					centralCompras()		
+				} senao 
+				{
+					inteiro x
+					
+					limpa()
+					valorCompra = quant*valorTeclado
+					escreva("Parabéns você comprou ", quant, " de Teclado. Valor: ", valorCompra, " reais\n")
+					estTeclado = estTeclado - quant
+					u.aguarde(1000)
+					escreva("Deseja Continuar comprando?\n")
+					escreva("1 - Comprar outros itens\n")
+					escreva("2 - Sair da Loja\n")
+					escreva("=> ")
+					leia(x)
+
+					escolha(x) {
+						caso 1:
+							limpa()
+							escreva("Retornando a Central Compras.")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()
+						pare
+						caso 2:
+							limpa()
+							escreva("Obrigado e volte sempre.")
+							u.aguarde(1000)
+						caso contrario:
+							limpa()
+							escreva("Opção Inválida\n")
+							u.aguarde(1000)
+							limpa()
+							centralCompras()	
+					}
+						
+				}
+			pare
+		}
+		
+		
+	}
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1412; 
+ * @POSICAO-CURSOR = 454; 
+ * @DOBRAMENTO-CODIGO = [363];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
