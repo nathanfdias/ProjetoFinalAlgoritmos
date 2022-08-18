@@ -1,17 +1,32 @@
 programa
 {
 	inclua biblioteca Util --> u
+	inclua biblioteca Matematica --> mat
 	inclua biblioteca Texto --> tx
 	inclua biblioteca Graficos --> g
 	inclua biblioteca Mouse --> mo
 	inclua biblioteca Teclado --> tl
 	inclua biblioteca Sons --> msc
 
-	const inteiro tamanho = 9
-	cadeia vetorUsuarios[tamanho] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
-	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "B123", "A123", "", "", ""}
+	cadeia vetorUsuarios[] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY"}
+	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "B123", "A123"}
 	cadeia usuario, senha
 	caracter opcao = '0'
+	inteiro vetorQtdProdutos[] = {40, 10, 25, 50, 30, 20, 15, 3, 25}
+	cadeia vetorProdutos[] = {"Mouse Ml-GMH64", "Monitor Ultrawide 29", "Teclado Mecânico Knup", "Cabo Usb 2 Metros", "Cabo Hdmi 1 Metro", "Hd Externo 4TB", "Cadeira Gamer Moobx Gt", "Mesa Escritório", "Caneca Stanley"}
+	real vetorValor[] = {54.00, 1200.99, 199.99, 9.99, 20.00, 300.00, 850.00, 400.00, 200.00}
+	cadeia vetorDescricao[] = {
+		"Com o seu Tedge ML-GMH64 encontre o que você está procurando em um único dispositivo com a melhor tecnologia.", 
+		"Trabalhe em mais de um relatório de uma vez só, sem precisar alternar de janelas toda vez.",
+		"Este teclado Knup de alto desempenho permite que você desfrute de horas ilimitadas de jogos.",
+		"Conector que permite conectar diferentes elementos através do Universal Serial Bus.",
+		"Cabo HDMI Premium com conectores banhados à ouro 24k, protegido com blindagem , garantindo maior durabilidade, evitando interferências e perda de qualidade.",
+		"Um HD externo oferece mais espaço de armazenamento para guardar os seus dados",
+		"As cadeiras GT RACER da MoobX são a opção ideal para os games mais desafiadores e irados. Sinta a adrenalina a cada jogo!",
+		"A nova linha de mesas para escritórios da Kappesberg trouxe muitas novidades para o seu espaço de trabalho. Deixe seu ambiente de trabalho com espaço e com organização.",
+		"O modelo, que está disponível na cor preto fosco e oferece capacidade para 709ml, faz parte da linha Classic e apresenta uma qualidade surpreendente."
+		
+		}
 	
 	funcao inicio()
 	{	
@@ -98,7 +113,7 @@ programa
 		leia(senha)
 		escreval("")
 	
-		para(inteiro i=0; i < tamanho; i++) {
+		para(inteiro i=0; i < 6; i++) {
 			acessoPermitido = (usuario == vetorUsuarios[i] e senha == vetorSenhas[i])
 			se (acessoPermitido) pare
 		} 
@@ -221,29 +236,14 @@ programa
 
 	funcao listaComputadores() 
 	{
-		lescreval("Código: 1")
-		escreval("Nome: Mouse Ml-GMH64")
-		escreval("Descrição: Com o seu Tedge ML-GMH64 encontre o que você está"+
-		" procurando em um único dispositivo com a melhor tecnologia.")
-		escreval("Quantidade: 30 ")
-		escreval("Valor: R$ 40,00 ")
-		escreval("")
-
-		escreval("Código: 2")
-		escreval("Nome: Monitor Ultrawide 29") 
-		escreval("Descrição: Trabalhe em mais de um relatório de uma vez só,"+
-		" sem precisar alternar de janelas toda vez.")
-		escreval("Quantidade: 10 ")
-		escreval("Valor: R$ 1200,00 ")
-		escreval("")
-
-		escreval("Código: 3")
-		escreval("Nome: Teclado Mecânico Knup")
-		escreval("Descrição: Este teclado Knup de alto desempenho permite que"+
-		" você desfrute de horas ilimitadas de jogos.")
-		escreval("Quantidade: 25")
-		escreval("Valor: R$ 150,00 ")	
-		escreval("")
+		para(inteiro i=0; i < 3; i++){
+			lescreval("Código: " + (i + 1))
+			escreval("Nome: " + vetorProdutos[i])
+			escreval("Descrição: " + vetorDescricao[i])
+			escreval("Quantidade: " + vetorQtdProdutos[i])
+			escreval("Valor: " + vetorValor[i])
+			escreval("")
+		}
 
 		escreva("Deseja exibir a imagem do produto? ")
 		lescreval("1 - Sim")
@@ -274,7 +274,8 @@ programa
 		}
 			lescreval("Deseja voltar ao menu?")
 			escreval("1 - Sim")
-			escreval("2 - Sair")
+			escreval("2 - Carrinho")
+			escreval("3 - Sair")
 			escreva("=> ")
 			leias(opcao)
 	
@@ -285,6 +286,10 @@ programa
 					menuPrincipal()
 				pare
 				caso '2' :
+					limpa()
+					carrinho()
+				pare
+				caso '3' :
 					limpa()
 					finalizar()
 				pare
@@ -297,30 +302,17 @@ programa
 
 	funcao listaHardware() 
 	{	
-		lescreval("Código: 1")	
-		escreval("Nome: Hd Externo 4TB")
-		escreval("Descrição: Um HD externo oferece mais espaço de armazenamento para"+
-		" guardar os seus dados.")
-		escreval("Quantidade: 5 ")
-		escreval("Valor: R$ 200,00 ")
-		escreval("")
-
-		escreval("Código: 2")
-		escreval("Nome: Cabo Usb 2 Metros")
-		escreval("Descrição: Conector que permite conectar diferentes elementos através do"+
-		" Universal Serial Bus.")
-		escreval("Quantidade: 40 ")
-		escreval("Valor: R$ 10,00 ")
-		escreval("")
-
-		escreval("Código: 3")
-		escreval("Nome: Cabo Hdmi 1 Metro ")
-		escreval("Descrição: Cabo HDMI Premium com conectores banhados à ouro 24k, protegido"+ 
-		" com blindagem , garantindo maior durabilidade, evitando interferências e perda de qualidade.")
-		escreval("Quantidade: 15 ")
-		escreval("Valor: R$ 25,00 ")
-		escreval("")
-
+		inteiro controle = 0
+		para(inteiro i=3; i < 6; i++){
+			controle = controle + 1
+			lescreval("Código: " + (controle))
+			escreval("Nome: " + vetorProdutos[i])
+			escreval("Descrição: " + vetorDescricao[i])
+			escreval("Quantidade: " + vetorQtdProdutos[i])
+			escreval("Valor: " + vetorValor[i])
+			escreval("")
+		}
+		
 		escreva("Deseja exibir a imagem do produto? ")
 		lescreval("1 - Sim")
 		escreval("2 - Não")
@@ -351,7 +343,8 @@ programa
 		}	
 			lescreval("Deseja voltar ao menu?")
 			escreval("1 - Sim")
-			escreval("2 - Sair")
+			escreval("2 - Carrinho")
+			escreval("3 - Sair")
 			escreva("=> ")
 			leias(opcao)
 	
@@ -363,6 +356,10 @@ programa
 				pare
 				caso '2' :
 					limpa()
+					carrinho()
+				pare
+				caso '3' :
+					limpa()
 					finalizar()
 				pare
 				caso contrario :
@@ -371,33 +368,18 @@ programa
 					listaHardware()			
 			}
 	}
-
 	funcao listaAcessorios()
 	{
-		lescreval("Código: 1")
-		escreval("Nome: Cadeira Gamer Moobx Gt")
-		escreval("Descrição: As cadeiras GT RACER da MoobX são a opção ideal"+
-		"para os games mais desafiadores e irados. Sinta a adrenalina a cada jogo!")
-		escreval("Quantidade: 10 ")
-		escreval("Valor: R$ 450,00 ")
-		escreval("")
-
-		escreval("Código: 2")
-		escreval("Nome: Mesa Escritório ")
-		escreval("Descrição: A nova linha de mesas para escritórios da "+
-		"Kappesberg trouxe muitas novidades para o seu espaço de trabalho."+ 
-		"Deixe seu ambiente de trabalho com espaço e com organização. ")
-		escreval("Quantidade: 5")
-		escreval("Valor: R$ 500,00 ")
-		escreval("")
-
-		escreval("Código: 3")
-		escreval("Nome: Caneca Stanley")
-		escreval("Descrição: O modelo, que está disponível na cor preto fosco e oferece capacidade para 709ml,"+
-		" faz parte da linha Classic e apresenta uma qualidade surpreendente.")
-		escreval("Quantidade: 80 ")
-		escreval("Valor: R$ 100,00 ")
-		escreval("")
+		inteiro controle = 0
+		para(inteiro i=6; i < 9; i++){
+			controle = controle + 1
+			lescreval("Código: " + (controle))
+			escreval("Nome: " + vetorProdutos[i])
+			escreval("Descrição: " + vetorDescricao[i])
+			escreval("Quantidade: " + vetorQtdProdutos[i])
+			escreval("Valor: " + vetorValor[i])
+			escreval("")
+		}
 
 		escreva("Deseja exibir a imagem do produto? ")
 		lescreval("1 - Sim")
@@ -424,12 +406,13 @@ programa
 				pare
 				caso contrario : 
 					opcaoInvalida()
-					listaHardware()		
+					listaAcessorios()		
 			}
 		}	
 			lescreval("Deseja voltar ao menu?")
 			escreval("1 - Sim")
-			escreval("2 - Sair")
+			escreval("2 - Carrinho")
+			escreval("3 - Sair")
 			escreva("=> ")
 			leias(opcao)
 	
@@ -441,13 +424,80 @@ programa
 				pare
 				caso '2' :
 					limpa()
+					carrinho()
+				pare
+				caso '3' :
+					limpa()
 					finalizar()
 				pare
 				caso contrario :
 					limpa()
 					opcaoInvalida()
-					listaHardware()			
+					listaAcessorios()			
 			}
+	}
+
+	funcao carrinho()
+	{
+		inteiro item, quant 
+		real valorTotal = 0.00
+
+		barraMenu("Carrinho")
+		escreval("Digite o produto que deseja comprar:")
+		para(inteiro i=0; i < 9; i++){
+			escreval(i + 1 + " - " + vetorProdutos[i])
+		}
+		escreval("10 - Menu")
+		escreva("=> ")
+		leia(item)
+
+		se (item == 10){
+			limpa()
+			menuPrincipal()
+		}
+		
+		lescreval("Digite a quantidade que deseja comprar:")
+		escreva("=> ")
+		leia(quant)
+
+		enquanto (vetorQtdProdutos[item - 1] < quant){
+			limpa()
+			escreval("Quantidade de " + vetorProdutos[item -1] + " indisponivel no estoque.")
+			escreval("Estoque disponível: " + vetorQtdProdutos[item -1])
+			carrinho()
+		} 
+		
+		limpa()
+		valorTotal = quant * vetorValor[item -1]
+		escreval("Parabéns você comprou " + quant + " " +  vetorProdutos[item -1])
+		escreval("Valor R$: " + valorTotal)
+		vetorQtdProdutos[item - 1] = vetorQtdProdutos[item - 1] - quant
+		u.aguarde(1000)
+		
+					
+		lescreval("Deseja continuar comprando?")
+		escreval("1 - Sim")
+		escreval("2 - Menu principal")
+		escreva("=> ")
+		leias(opcao)
+
+		escolha(opcao) {
+			caso '1':
+				limpa()
+				escreva("Retornando a Central Compras.")
+				limpa()
+				carrinho()
+			pare
+			caso '2':
+				limpa()
+				menuPrincipal()
+			pare
+			caso contrario:
+				limpa()
+				escreva("Opção Inválida\n")
+				limpa()
+				carrinho()	
+		}
 	}
 
 	funcao editarUsuario()
@@ -537,8 +587,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 479; 
- * @DOBRAMENTO-CODIGO = [15, 20, 56, 113, 148, 179, 221, 297, 413, 374, 457, 474, 484, 492, 502, 507, 512, 517, 522, 528];
+ * @POSICAO-CURSOR = 9675; 
+ * @DOBRAMENTO-CODIGO = [35, 71, 103, 128, 163, 194, 238, 502, 507, 524, 542, 552, 557, 562, 567, 572, 578];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
