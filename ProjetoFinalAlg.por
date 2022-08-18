@@ -9,8 +9,8 @@ programa
 	inclua biblioteca Sons --> msc
 	inclua biblioteca Tipos --> t
 
-	cadeia vetorUsuarios[] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY"}
-	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "B123", "A123"}
+	cadeia vetorUsuarios[] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", "", ""}
+	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "B123", "A123", "", "", "", ""}
 	cadeia usuario, senha
 	caracter opcao = '0'
 	inteiro vetorQtdProdutos[] = {40, 10, 25, 50, 30, 20, 15, 3, 25}
@@ -115,7 +115,7 @@ programa
 		leia(senha)
 		escreval("")
 	
-		para(inteiro i=0; i < 6; i++) {
+		para(inteiro i=0; i < u.numero_elementos(vetorUsuarios); i++) {
 			acessoPermitido = (usuario == vetorUsuarios[i] e senha == vetorSenhas[i])
 			se (acessoPermitido) pare
 		} 
@@ -215,7 +215,8 @@ programa
 		escreval("1 - Computadores") 
 		escreval("2 - Hardware") 
 		escreval("3 - Acessórios")
-		escreval("4 - Sair ")
+		escreval("4 - Login")
+		escreval("5 - Sair ")
 		escreva("=> ")
 		leias(opcao)
 
@@ -239,6 +240,10 @@ programa
 				limpa()
 				u.aguarde(1000)
 				login()
+			pare
+			caso '5' :
+				limpa() 
+				lescreval("Volte sempre que desejar!")
 			pare
 			caso contrario:
 				opcaoInvalida()	
@@ -459,9 +464,11 @@ programa
 		barraMenu("Menu Cadastro")
 		escreval("Bem vindo " + usuario + "!")
 		escreval("Selecione a opção desejada: ")
-		escreval("1 - Alterar usuário") 
-		escreval("2 - Alterar produto") 
-		escreval("3 - Sair ")
+		escreval("1 - Cadastrar usuário") 
+		escreval("2 - Alterar usuário")
+		escreval("3 - Excluir usuário") 
+		escreval("4 - Alterar produto") 
+		escreval("5 - Sair ")
 		escreva("=> ")
 		leias(opcao)
 
@@ -472,9 +479,17 @@ programa
 			pare
 			caso '2' :
 				limpa()
-				cadastroProduto()
+				editaUsuario()
 			pare
 			caso '3' :
+				limpa()
+				excluirUsuario()
+			pare
+			caso '4' :
+				limpa()
+				editaProduto()
+			pare
+			caso '5' :
 				limpa()
 				u.aguarde(1000)
 				login()
@@ -488,39 +503,43 @@ programa
 		}
 	}
 
-	funcao cadastroUsuario()
+	funcao editaUsuario()
 	{	
 		inteiro idUsuario = 0
+		cadeia usuarioEditado
 		barraMenu("Usuários")
 		escreval("Digite o código usuário que deseja editar: ")
-		para(inteiro i=0; i < 6; i++){
-			escreval(i + 1 + " - " + vetorUsuarios[i])
+
+		enquanto (vetorUsuarios[idUsuario] != ""){
+			escreval((idUsuario + 1) + " - " + vetorUsuarios[idUsuario])
+			idUsuario = idUsuario++
 		}
+	
 		escreva("=> ")
 		leia(idUsuario)
 
 		se ((idUsuario-1) >= 6){
 			opcaoInvalida()
-			cadastroUsuario()
+			editaUsuario()
 		}
 
 		lescreval("Digite o novo login:")
 		escreva("=> ")
-		leia(usuario)
+		leia(usuarioEditado)
 		lescreval("Digite a nova senha:")
 		escreva("=> ")
 		leia(senha)
 		
-		vetorUsuarios[idUsuario - 1] = usuario
+		vetorUsuarios[idUsuario - 1] = tx.caixa_alta(usuarioEditado)
 		vetorSenhas[idUsuario - 1 ] = senha
 
 		limpa()
-		lescreval("Usuário alterado com sucesso. Usuário: " + usuario + " Senha: " + senha)
+		lescreval("Usuário alterado com sucesso. Usuário: " + tx.caixa_alta(usuarioEditado) + " Senha: " + senha)
 		menuCadastro()
 		
 	}
 
-	funcao cadastroProduto()
+	funcao editaProduto()
 	{
 		inteiro qtd, idProduto = 0
 		cadeia produto, descricao
@@ -536,7 +555,7 @@ programa
 
 		se ((idProduto-1) >= 9){
 			opcaoInvalida()
-			cadastroProduto()
+			editaProduto()
 		}
 
 		lescreval("Digite o novo nome:")
@@ -564,6 +583,64 @@ programa
 		escreval("Quantidade: " + qtd)
 		escreval("Descrição: " + descricao)
 		
+		menuCadastro()	
+	}
+
+	funcao cadastroUsuario()
+	{
+		inteiro posicao = 0
+		cadeia usuarioCadastrado
+		barraMenu("Cadastro Usuários")
+		escreval("Preencha os dados do novo usuário: ")
+		escreva("Usuário: ")
+		leia(usuarioCadastrado)
+		escreva("Senha: ")
+		leia(senha)
+
+		
+		enquanto (vetorUsuarios[posicao] != "")
+			posicao = posicao++
+
+		vetorUsuarios[posicao] = tx.caixa_alta(usuarioCadastrado)
+		vetorSenhas[posicao] = senha
+
+		limpa()
+		lescreval("Usuário cadastrado com sucesso!")
+		escreval("Usuário: " + tx.caixa_alta(usuarioCadastrado))
+		escreval("Senha: " + senha)
+
+		u.aguarde(2000)
+		limpa()
+		menuCadastro()
+	}
+
+	funcao excluirUsuario()
+	{
+		inteiro posicao = 0
+		cadeia usuarioExcluido
+
+		barraMenu("Excluir Usuário")
+		escreval("Infome o usuário a ser excluído")
+		escreva("Usuário: ")
+		leia(usuarioExcluido)
+
+		para(inteiro i=0; i < u.numero_elementos(vetorUsuarios); i++){
+			se (vetorUsuarios[i] == usuarioExcluido){
+				limpa()
+				lescreval("Usuário " + usuarioExcluido + " excluído com sucesso!")
+				
+				vetorUsuarios[posicao] = ""
+				vetorSenhas[posicao] = ""
+
+				u.aguarde(2000)
+				limpa()
+				menuCadastro()	
+			}
+		}
+			
+		lescreval("Usuário inexistente, tente novamente!")
+		u.aguarde(2000)
+		limpa()
 		menuCadastro()	
 	}
 	
@@ -604,7 +681,7 @@ programa
 			limpa()
 			valorTotal = quant * vetorValor[item -1]
 			escreval("Parabéns você comprou " + quant + " " +  vetorProdutos[item -1])
-			escreval("Valor R$: " + valorTotal)
+			escreval("Valor R$: " + mat.arredondar(valorTotal, 2))
 			vetorQtdProdutos[item - 1] = vetorQtdProdutos[item - 1] - quant
 			u.aguarde(1000)
 			
@@ -716,10 +793,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 402; 
- * @DOBRAMENTO-CODIGO = [18, 253, 268, 390, 653, 671, 681, 686, 691, 696, 701, 707];
+ * @POSICAO-CURSOR = 6578; 
+ * @DOBRAMENTO-CODIGO = [31, 36, 72, 105, 135, 177, 209, 258, 273, 322, 395, 411, 392, 461, 505, 541, 588, 616, 646, 712, 730, 740, 748, 758, 763, 768, 773, 778, 784];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{usuarioExcluido, 620, 9, 15}-{i, 627, 15, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
