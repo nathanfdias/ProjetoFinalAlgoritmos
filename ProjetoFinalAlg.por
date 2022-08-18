@@ -74,10 +74,10 @@ programa
 	{
 		barraMenu("INFOLUX COMPUTADORES")
 		barraMenu("  SEMPRE CONECTADO  ")
-		lescreval("Deseja entrar na loja? ")
-		escreval("1 - Sim ")
-		escreval("2 - Sair")
-		escreval("3 - Sobre")
+		lescreval("Selecione a opção desejada: ")
+		escreval("1 - Entrar na loja ")
+		escreval("2 - Sobre o sistema")
+		escreval("3 - Sair")
 		lescreva("=> ")
 		leias(opcao)	
 
@@ -87,11 +87,11 @@ programa
 				limpa()
 				login()
 			pare
-			caso '2' : 
+			caso '3' : 
 				limpa() 
 				lescreval("Volte sempre que desejar!")
 			pare
-			caso '3' :
+			caso '2' :
 				limpa()
 				sobre()
 			pare
@@ -151,9 +151,9 @@ programa
 
 		lescreval("© 2022-2022 InfoLux. Todos os direitos reservados.")
 
-		lescreval("Deseja voltar a tela inicial? ")
-		escreval("1 - Sim ")
-		escreval("2 - Não")
+		lescreval("Selecione a opção desejada:  ")
+		escreval("1 - Tela inicial ")
+		escreval("2 - Sair")
 		lescreva("=> ")
 		leias(opcao)	
 
@@ -179,9 +179,10 @@ programa
      {
 		limpa()
 		barraMenu("Login")
-		lescreval("Usuário e/ou senha inválidos, deseja tentar novamente?")
-		escreval("1 - Sim")
-		escreval("2 - Menu anterior")
+		lescreval("Usuário e/ou senha inválidos")
+		escreval("Selecione a opção desejada:  ")
+		escreval("1 - Tentar novamente")
+		escreval("2 - Tela inicial")
 		escreval("3 - Sair")
 		lescreva("=> ")
 		leias(opcao)
@@ -210,7 +211,7 @@ programa
 	{	
 		barraMenu("Menu principal")
 		escreval("Bem vindo " + usuario + "!")
-		escreval("Qual categoria deseja acessar? ")
+		escreval("Selecione a opção desejada: ")
 		escreval("1 - Computadores") 
 		escreval("2 - Hardware") 
 		escreval("3 - Acessórios")
@@ -259,9 +260,9 @@ programa
 			escreval("")
 		}
 
-		escreva("Deseja exibir a imagem do produto? ")
-		lescreval("1 - Sim")
-		escreval("2 - Não")
+		escreva("Selecione a opção desejada: ")
+		lescreval("1 - Exibir imagem do produto")
+		escreval("2 - Não exibir imagem do produto")
 		escreva("=> ")
 		leias(opcao)
 
@@ -286,8 +287,8 @@ programa
 					listaComputadores()		
 			}
 		}
-			lescreval("Deseja voltar ao menu?")
-			escreval("1 - Sim")
+			lescreval("Selecione a opção desejada:  ")
+			escreval("1 - Menu")
 			escreval("2 - Carrinho")
 			escreval("3 - Sair")
 			escreva("=> ")
@@ -301,11 +302,11 @@ programa
 				pare
 				caso '2' :
 					limpa()
-					carrinho()
+					carrinho(0, 3)
 				pare
 				caso '3' :
 					limpa()
-					finalizar()
+					menuPrincipal()
 				pare
 				caso contrario :
 					limpa()
@@ -328,9 +329,9 @@ programa
 			escreval("")
 		}
 		
-		escreva("Deseja exibir a imagem do produto? ")
-		lescreval("1 - Sim")
-		escreval("2 - Não")
+		escreva("Selecione a opção desejada: ")
+		lescreval("1 - Exibir imagem do produto")
+		escreval("2 - Não exibir imagem do produto")
 		escreva("=> ")
 		leias(opcao)
 
@@ -356,8 +357,8 @@ programa
 					listaHardware()		
 			}
 		}	
-			lescreval("Deseja voltar ao menu?")
-			escreval("1 - Sim")
+			lescreval("Selecione a opção desejada:  ")
+			escreval("1 - Menu")
 			escreval("2 - Carrinho")
 			escreval("3 - Sair")
 			escreva("=> ")
@@ -371,11 +372,11 @@ programa
 				pare
 				caso '2' :
 					limpa()
-					carrinho()
+					carrinho(3, 6)
 				pare
 				caso '3' :
 					limpa()
-					finalizar()
+					menuPrincipal()
 				pare
 				caso contrario :
 					limpa()
@@ -397,9 +398,9 @@ programa
 			escreval("")
 		}
 
-		escreva("Deseja exibir a imagem do produto? ")
-		lescreval("1 - Sim")
-		escreval("2 - Não")
+		escreva("Selecione a opção desejada: ")
+		lescreval("1 - Exibir imagem do produto")
+		escreval("2 - Não exibir imagem do produto")
 		escreva("=> ")
 		leias(opcao)
 
@@ -425,8 +426,8 @@ programa
 					listaAcessorios()		
 			}
 		}	
-			lescreval("Deseja voltar ao menu?")
-			escreval("1 - Sim")
+			lescreval("Selecione a opção desejada:  ")
+			escreval("1 - Menu")
 			escreval("2 - Carrinho")
 			escreval("3 - Sair")
 			escreva("=> ")
@@ -440,11 +441,11 @@ programa
 				pare
 				caso '2' :
 					limpa()
-					carrinho()
+					carrinho(6, 9)
 				pare
 				caso '3' :
 					limpa()
-					finalizar()
+					menuPrincipal()
 				pare
 				caso contrario :
 					limpa()
@@ -457,7 +458,7 @@ programa
 	{
 		barraMenu("Menu Cadastro")
 		escreval("Bem vindo " + usuario + "!")
-		escreval("Qual categoria deseja acessar? ")
+		escreval("Selecione a opção desejada: ")
 		escreval("1 - Alterar usuário") 
 		escreval("2 - Alterar produto") 
 		escreval("3 - Sair ")
@@ -566,66 +567,69 @@ programa
 		menuCadastro()	
 	}
 	
-	funcao carrinho()
+	funcao carrinho(inteiro iniciocarrinho, inteiro fimcarrinho)
 	{
-		inteiro item, quant 
+		inteiro item, quant, contador =0
 		real valorTotal = 0.00
 
 		barraMenu("Carrinho")
 		escreval("Digite o produto que deseja comprar:")
-		para(inteiro i=0; i < 9; i++){
-			escreval(i + 1 + " - " + vetorProdutos[i])
+		para(inteiro i=iniciocarrinho; i < fimcarrinho; i++){
+			contador = contador++
+			escreval(contador + " - " + vetorProdutos[i])
 		}
-		escreval("10 - Menu")
+		escreval("4 - Menu")
 		escreva("=> ")
 		leia(item)
 
-		se (item == 10){
+		se (item == 4){
 			limpa()
 			menuPrincipal()
-		}
-		
-		lescreval("Digite a quantidade que deseja comprar:")
-		escreva("=> ")
-		leia(quant)
-
-		enquanto (vetorQtdProdutos[item - 1] < quant){
+		} senao se(item > 4){
+			opcaoInvalida()
+			carrinho(iniciocarrinho, fimcarrinho)
+		}senao{
+			item = item + iniciocarrinho
+			lescreval("Digite a quantidade que deseja comprar:")
+			escreva("=> ")
+			leia(quant)
+	
+			enquanto (vetorQtdProdutos[item - 1] < quant){
+				limpa()
+				escreval("Quantidade de " + vetorProdutos[item -1] + " indisponivel no estoque.")
+				escreval("Estoque disponível: " + vetorQtdProdutos[item -1])
+				carrinho(iniciocarrinho, fimcarrinho)
+			} 
+			
 			limpa()
-			escreval("Quantidade de " + vetorProdutos[item -1] + " indisponivel no estoque.")
-			escreval("Estoque disponível: " + vetorQtdProdutos[item -1])
-			carrinho()
-		} 
-		
-		limpa()
-		valorTotal = quant * vetorValor[item -1]
-		escreval("Parabéns você comprou " + quant + " " +  vetorProdutos[item -1])
-		escreval("Valor R$: " + valorTotal)
-		vetorQtdProdutos[item - 1] = vetorQtdProdutos[item - 1] - quant
-		u.aguarde(1000)
-		
-					
-		lescreval("Deseja continuar comprando?")
-		escreval("1 - Sim")
-		escreval("2 - Menu principal")
-		escreva("=> ")
-		leias(opcao)
-
-		escolha(opcao) {
-			caso '1':
-				limpa()
-				escreva("Retornando a Central Compras.")
-				limpa()
-				carrinho()
-			pare
-			caso '2':
-				limpa()
-				menuPrincipal()
-			pare
-			caso contrario:
-				limpa()
-				escreva("Opção Inválida\n")
-				limpa()
-				carrinho()	
+			valorTotal = quant * vetorValor[item -1]
+			escreval("Parabéns você comprou " + quant + " " +  vetorProdutos[item -1])
+			escreval("Valor R$: " + valorTotal)
+			vetorQtdProdutos[item - 1] = vetorQtdProdutos[item - 1] - quant
+			u.aguarde(1000)
+			
+						
+			lescreval("Selecione a opção desejada: ")
+			escreval("1 - Continuar comprando")
+			escreval("2 - Menu")
+			escreva("=> ")
+			leias(opcao)
+	
+			escolha(opcao) {
+				caso '1':
+					limpa()
+					escreva("Retornando a Central Compras.")
+					limpa()
+					carrinho(iniciocarrinho, fimcarrinho)
+				pare
+				caso '2':
+					limpa()
+					menuPrincipal()
+				pare
+				caso contrario:
+					opcaoInvalida()
+					carrinho(iniciocarrinho, fimcarrinho)	
+			}
 		}
 	}
 	
@@ -644,6 +648,7 @@ programa
 	    		u.aguarde(10)
 	     }
 	     g.encerrar_modo_grafico()
+	     limpa()
 	}
 
 	funcao som(cadeia arquivo)
@@ -711,10 +716,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 12249; 
- * @DOBRAMENTO-CODIGO = [18, 31, 36, 72, 105, 135, 177, 208, 252, 267, 250, 316, 389, 386, 455, 489, 631, 648, 658, 666, 676, 681, 686, 691, 696, 702];
+ * @POSICAO-CURSOR = 402; 
+ * @DOBRAMENTO-CODIGO = [18, 253, 268, 390, 653, 671, 681, 686, 691, 696, 701, 707];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{vetorSenhas, 13, 8, 11}-{idUsuario, 492, 10, 9}-{i, 495, 15, 1};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
