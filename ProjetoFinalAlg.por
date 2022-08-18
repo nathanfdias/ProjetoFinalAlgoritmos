@@ -348,14 +348,13 @@ programa
 			
 			escolha (opcao){ 
 				caso '1' : 
-					imagem("img/hdExternoProjeto.png")
-					escreval("")
-				pare
-				caso '2' : 
 					imagem("img/Usbprojeto.png")
 				pare
-				caso '3' : 
+				caso '2' : 
 					imagem("img/HDMIprojeto.png")
+				pare
+				caso '3' : 
+					imagem("img/hdExternoProjeto.png")
 				pare
 				caso contrario : 
 					opcaoInvalida()
@@ -793,10 +792,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6578; 
- * @DOBRAMENTO-CODIGO = [31, 36, 72, 105, 135, 177, 209, 258, 273, 322, 395, 411, 392, 461, 505, 541, 588, 616, 646, 712, 730, 740, 748, 758, 763, 768, 773, 778, 784];
+ * @POSICAO-CURSOR = 8323; 
+ * @DOBRAMENTO-CODIGO = [31, 36, 72, 105, 135, 177, 209, 258, 273, 256, 394, 410, 391, 460, 504, 540, 587, 615, 645, 711, 729, 739, 747, 757, 762, 767, 772, 777, 783];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{usuarioExcluido, 620, 9, 15}-{i, 627, 15, 1};
+ * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{i, 40, 10, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
