@@ -8,7 +8,7 @@ programa
 	inclua biblioteca Sons --> msc
 
 	const inteiro tamanho = 9
-	cadeia vetorUsuarios[tamanho] = {"admin", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
+	cadeia vetorUsuarios[tamanho] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY", "", "", ""}
 	cadeia vetorSenhas[tamanho] = {"admin", "L123", "P123", "N123", "B123", "A123", "", "", ""}
 	cadeia usuario, senha
 	caracter opcao = '0'
@@ -450,6 +450,11 @@ programa
 			}
 	}
 
+	funcao editarUsuario()
+	{
+		
+	}
+	
 	funcao imagem(cadeia arquivo)
 	{		
 		inteiro img = g.carregar_imagem(arquivo)
@@ -532,8 +537,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 378; 
- * @DOBRAMENTO-CODIGO = [15, 88, 148, 179, 221, 297, 413, 374, 452, 469, 479, 487, 497, 502, 507, 512, 517, 523];
+ * @POSICAO-CURSOR = 479; 
+ * @DOBRAMENTO-CODIGO = [15, 20, 56, 113, 148, 179, 221, 297, 413, 374, 457, 474, 484, 492, 502, 507, 512, 517, 522, 528];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
