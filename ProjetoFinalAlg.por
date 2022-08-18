@@ -7,6 +7,7 @@ programa
 	inclua biblioteca Mouse --> mo
 	inclua biblioteca Teclado --> tl
 	inclua biblioteca Sons --> msc
+	inclua biblioteca Tipos --> t
 
 	cadeia vetorUsuarios[] = {"ADMIN", "LEANDRO", "POEMA", "NATHAN", "BARBARA", "ANTHONY"}
 	cadeia vetorSenhas[] = {"admin", "L123", "P123", "N123", "B123", "A123"}
@@ -91,7 +92,8 @@ programa
 				lescreval("Volte sempre que desejar!")
 			pare
 			caso '3' :
-				desenvolvedores()
+				limpa()
+				sobre()
 			pare
 			caso contrario :
 				limpa()
@@ -119,16 +121,26 @@ programa
 		} 
 
 		se (acessoPermitido){
-			limpa()
-			menuPrincipal()
+			se (vetorUsuarios[0] == usuario){
+				limpa()
+				menuCadastro()
+			} senao{
+				limpa()
+				menuPrincipal()
+			}
 		} senao {
 			acessoInvalido()
 		}		
 	}
 
-	funcao desenvolvedores()
+	funcao sobre()
 	{
 		limpa()
+		barraMenu("Sobre")
+		escreval("Versão 1.0 (18 de agosto de 2015)")
+		lescreval("   ° Lançamento da versão.")
+		lescreval("")
+		
 		barraMenu("Desenvolvedores")
 		escreval("Anthony Barbosa - https://github.com/AnthonyBarbosa15")
 		escreval("Barbara Souza - https://github.com/barbarasouzza")
@@ -136,6 +148,8 @@ programa
 		escreval("Mari Barbosa - ")
 		escreval("Nathan Dias - https://github.com/nathanfdias")
 		escreval("Poema Bochner - https://github.com/poemabochner")
+
+		lescreval("© 2022-2022 InfoLux. Todos os direitos reservados.")
 
 		lescreval("Deseja voltar a tela inicial? ")
 		escreval("1 - Sim ")
@@ -301,6 +315,7 @@ programa
 	}
 
 	funcao listaHardware() 
+	
 	{	
 		inteiro controle = 0
 		para(inteiro i=3; i < 6; i++){
@@ -368,6 +383,7 @@ programa
 					listaHardware()			
 			}
 	}
+	
 	funcao listaAcessorios()
 	{
 		inteiro controle = 0
@@ -437,6 +453,119 @@ programa
 			}
 	}
 
+	funcao menuCadastro()
+	{
+		barraMenu("Menu Cadastro")
+		escreval("Bem vindo " + usuario + "!")
+		escreval("Qual categoria deseja acessar? ")
+		escreval("1 - Alterar usuário") 
+		escreval("2 - Alterar produto") 
+		escreval("3 - Sair ")
+		escreva("=> ")
+		leias(opcao)
+
+		escolha(opcao) {
+			caso '1' :
+				limpa()
+				cadastroUsuario()
+			pare
+			caso '2' :
+				limpa()
+				cadastroProduto()
+			pare
+			caso '3' :
+				limpa()
+				u.aguarde(1000)
+				login()
+			pare
+			caso contrario:
+				opcaoInvalida()	
+				u.aguarde(1000)
+				limpa()
+				menuCadastro()
+			pare	
+		}
+	}
+
+	funcao cadastroUsuario()
+	{	
+		inteiro idUsuario = 0
+		barraMenu("Usuários")
+		escreval("Digite o código usuário que deseja editar: ")
+		para(inteiro i=0; i < 6; i++){
+			escreval(i + 1 + " - " + vetorUsuarios[i])
+		}
+		escreva("=> ")
+		leia(idUsuario)
+
+		se ((idUsuario-1) >= 6){
+			opcaoInvalida()
+			cadastroUsuario()
+		}
+
+		lescreval("Digite o novo login:")
+		escreva("=> ")
+		leia(usuario)
+		lescreval("Digite a nova senha:")
+		escreva("=> ")
+		leia(senha)
+		
+		vetorUsuarios[idUsuario - 1] = usuario
+		vetorSenhas[idUsuario - 1 ] = senha
+
+		limpa()
+		lescreval("Usuário alterado com sucesso. Usuário: " + usuario + " Senha: " + senha)
+		menuCadastro()
+		
+	}
+
+	funcao cadastroProduto()
+	{
+		inteiro qtd, idProduto = 0
+		cadeia produto, descricao
+		real valor = 0.00
+		
+		barraMenu("Produtos")
+		escreval("Digite o produto que deseja alterar")
+		para(inteiro i=0; i < 9; i++){
+			escreval(i + 1 + " - " + vetorProdutos[i])
+		}
+		escreva("=> ")
+		leia(idProduto)
+
+		se ((idProduto-1) >= 9){
+			opcaoInvalida()
+			cadastroProduto()
+		}
+
+		lescreval("Digite o novo nome:")
+		escreva("=> ")
+		leia(produto)
+		lescreval("Digite o novo valor:")
+		escreva("=> ")
+		leia(valor)
+		lescreval("Digite a nova quantidade:")
+		escreva("=> ")
+		leia(qtd)
+		lescreval("Digite a nova descrição:")
+		escreva("=> ")
+		leia(descricao)
+		
+		vetorProdutos[idProduto - 1] = produto
+		vetorValor[idProduto - 1] = valor
+		vetorQtdProdutos[idProduto - 1] = qtd
+		vetorDescricao[idProduto - 1] = descricao
+
+		limpa()
+		lescreval("Produto alterado com sucesso.")
+		escreval("Nome: " + produto)
+		escreval("Valor R$: " + valor)
+		escreval("Quantidade: " + qtd)
+		escreval("Descrição: " + descricao)
+		
+		menuCadastro()	
+	}
+	
 	funcao carrinho()
 	{
 		inteiro item, quant 
@@ -498,11 +627,6 @@ programa
 				limpa()
 				carrinho()	
 		}
-	}
-
-	funcao editarUsuario()
-	{
-		
 	}
 	
 	funcao imagem(cadeia arquivo)
@@ -587,10 +711,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9675; 
- * @DOBRAMENTO-CODIGO = [35, 71, 103, 128, 163, 194, 238, 502, 507, 524, 542, 552, 557, 562, 567, 572, 578];
+ * @POSICAO-CURSOR = 12249; 
+ * @DOBRAMENTO-CODIGO = [18, 31, 36, 72, 105, 135, 177, 208, 252, 267, 250, 316, 389, 386, 455, 489, 631, 648, 658, 666, 676, 681, 686, 691, 696, 702];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{vetorSenhas, 13, 8, 11}-{idUsuario, 492, 10, 9}-{i, 495, 15, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
