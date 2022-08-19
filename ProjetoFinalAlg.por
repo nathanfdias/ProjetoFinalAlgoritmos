@@ -116,7 +116,7 @@ programa
 		escreval("")
 	
 		para(inteiro i=0; i < u.numero_elementos(vetorUsuarios); i++) {
-			acessoPermitido = (usuario == vetorUsuarios[i] e senha == vetorSenhas[i])
+			acessoPermitido = (usuario == vetorUsuarios[i] e senha == vetorSenhas[i] e usuario != "" e senha != "")
 			se (acessoPermitido) pare
 		} 
 
@@ -792,8 +792,8 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 8323; 
- * @DOBRAMENTO-CODIGO = [31, 36, 72, 105, 135, 177, 209, 258, 273, 256, 394, 410, 391, 460, 504, 540, 587, 615, 645, 711, 729, 739, 747, 757, 762, 767, 772, 777, 783];
+ * @POSICAO-CURSOR = 3592; 
+ * @DOBRAMENTO-CODIGO = [31, 36, 72, 135, 177, 209, 258, 273, 256, 322, 394, 410, 391, 460, 504, 540, 587, 615, 645, 711, 729, 747, 757, 762, 767, 772, 777, 783];
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {vetorUsuarios, 12, 8, 13}-{i, 40, 10, 1};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
